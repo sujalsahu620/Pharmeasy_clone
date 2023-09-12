@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>otp validatation</title>
+  <style>
+    *{
+        font-family: sans-serif;
+    }
+    #up_side {
+      margin-top: -7px;
+      margin-left: -8px;
+      width: 1600px;
+      height: 90px;
+      background-color: #10847e;
+    }
+
+    #up_side>img {
+      width: 180px;
+      height: 70%;
+      margin-top: 12px;
+      margin-left: 20px;
+    }
+
+    #user_details {
+      text-align: center;
+    }
+
+    #otp_input {
+      margin: auto;
+      width: 320px;
+      height: 50px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    #otp_input>input {
+      width: 50px;
+      text-align: center;
+    }
+
+    #option {
+      display: flex;
+      justify-content: space-between;
+      margin: auto;
+      width: 320px;
+      height: 50px;
+    }
+
+    #otp {
+      text-align: center;
+      margin-top: 20px;
+      margin-left: 600px;
+      height: 40px;
+      width: 320px;
+      background-color: #10847e;
+      border: none;
+      color: white;
+    }
+
+    #term {
+      margin-left: 600px;
+      margin-top: 25px;
+      color: #767f80;
+    }
+  </style>
+  
+</head>
+
+<body>
+    <div id="up_side">
+        <img src="./images/pharmeasy.png" alt="" />
+      </div>
+  <!-- <div id="nav"></div> -->
+  
+
+  <p id="user_details"></p>
+
+  <div id="otp_input">
+    <input id="otp1" maxlength="1" type="text" />
+    <input id="otp2" maxlength="1" type="text" />
+    <input id="otp3" maxlength="1" type="text" />
+    <input id="otp4" maxlength="1" type="text" />
+  </div>
+
+  <div id="option">
+    <a href="login.html">
+      <p>Change Number</p>
+    </a>
+    <a href="otp.html">
+      <p>Resend OTP</p>
+    </a>
+  </div>
+
+  <button onclick="loginOrSignup()" id="otp">Continue</button>
+  <p id="term">By clicking continue, you agree with our Privacy Policy</p>
+
+
+
+
+
+
+
+
+</body>
+
+</html>
+
+<script type="module">
+
+
+  import navbar from "./component/navbar.js"
+  document.querySelector("#nav").innerHTML = navbar()
+</script>
+
+<script>
+
+
+
+
+
+
+  let mobileNumber = localStorage.getItem("mobileNumber");
+
+  // shivani
+
+
+
+  // shivani
+  document.getElementById(
+    "user_details"
+  ).innerText = `Enter OTP sent to +91 ${mobileNumber}`;
+
+  let users = JSON.parse(localStorage.getItem("users")) || [];
+
+  function loginOrSignup() {
+    let user1 = users.filter((el) => {
+      return el == mobileNumber;
+    });
+    // console.log(user1);
+
+    let otp1 = document.querySelector("#otp1").value;
+    let otp2 = document.querySelector("#otp2").value;
+    let otp3 = document.querySelector("#otp3").value;
+    let otp4 = document.querySelector("#otp4").value;
+
+    let finalOtp = `${otp1}${otp2}${otp3}${otp4}`;
+    console.log(finalOtp);
+
+    if (user1 == mobileNumber) {
+      if (finalOtp == "8454" || finalOtp == "8864" || finalOtp == "9576") {
+        localStorage.setItem("login", "true");
+        alert("Login Successful");
+        window.location.href = "index.html";
+      } else {
+        alert("Wrong OTP");
+      }
+    } else {
+      if (finalOtp == "8454" || finalOtp == "8864" || finalOtp == "9576") {
+        localStorage.setItem("login", "true");
+        users.push(mobileNumber);
+        localStorage.setItem("users", JSON.stringify(users));
+        alert("Login successful");
+        window.location.href = "mainpage.html"
+      } else {
+        alert("Wrong OTP");
+      }
+    }
+  }
+
+
+
+</script>
