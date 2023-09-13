@@ -125,14 +125,15 @@
 
   let mobileNumber = localStorage.getItem("mobileNumber");
 
-  // shivani
+ 
 
 
 
-  // shivani
+  
   document.getElementById(
     "user_details"
   ).innerText = `Enter OTP sent to +91 ${mobileNumber}`;
+  alert("Enter the OTP: 8864");
 
   let users = JSON.parse(localStorage.getItem("users")) || [];
 
