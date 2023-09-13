@@ -1,0 +1,87 @@
+*{
+    font-family: sans-serif;
+}
+.Health_Articles{
+    margin-bottom: 60px;
+    display: flex;
+    color: #4F585E;
+    text-align:start;
+    padding: 14px;
+}
+.Health_Articles>div{
+    margin: 15px;
+    border: 1px solid rgb(198, 193, 193);
+    border-radius: 11px;
+    width: 220px;
+    height: 250px;
+}
+.Health_Articles>div>img{
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    min-width: 100%;
+    min-height: 70%;
+    max-width: 100%;
+    max-height: 70%;
+    object-fit: cover;
+}
+.Health_Articles>div:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.Health_Articles>div>p{
+    letter-spacing: 1px;
+    font-size: 15px;
+    padding: 12px;
+    margin: 0;
+}
+.choose_us{
+    background-color: #F8F9FF;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 60px;
+}
+.choose_us2{
+    color: 30363B;
+    padding: 10px;
+    width: 270px;
+    margin-bottom: 50px;
+    display: flex;
+}
+.choose_us2 img{
+    width: 120px;
+}
+.choose_us2 div{
+    padding: 10px;
+}
+.inside{
+    color: 30363B;
+    padding: 40px;
+    margin: 0;
+    background-color:#F8F9FF;
+}
+.appdownload_nav{
+    background-color: #D7FAF8;
+    padding: 50px;
+    color: #30363B;
+    text-align: center;
+    background-image:url("https://assets.pharmeasy.in/apothecary/images/downloadBanner.webp?dim=1440x0&q=100");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-bottom: 60px;
+}
+.Feedback{
+    display: flex;
+    justify-content: space-around;
+}
+.Feedback>div{
+    margin: 30px;
+}
+.Feedback>div>div{
+    background-color:#F1FFF8 ;
+    border: 1px solid #D7FAF8;
+    padding: 30px;
+    letter-spacing: 1px;
+}
+.Feedback_head{
+    margin-bottom: 0;
+}
