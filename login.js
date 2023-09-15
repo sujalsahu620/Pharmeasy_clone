@@ -37,6 +37,12 @@ function inputs(event){
 }
 
 //document.querySelector('.button').addEventListener('click',newdiss)
+function displayAlertMessage(message) {
+    var floatingAlert = document.querySelector('#floatingAlert');
+    var alertMessage = document.querySelector('#alertMessage');
+    alertMessage.innerText = message;
+    floatingAlert.style.display = "block";
+}
 
 function newdiss(event){
     document.querySelector('form').innerHTML="";
@@ -75,9 +81,7 @@ function newdiss(event){
     inputsubmit.setAttribute("id","continuebtn")
     inputsubmit.setAttribute("class","button1")
     
-    var alertMessage = document.createElement("p");
-    alertMessage.innerText = "Enter the OTP: 8864";
-    alertMessage.style.color = "red"; 
+   
     
 
     var underbuttontext=document.createElement("p")
@@ -85,6 +89,34 @@ function newdiss(event){
 
     card.append(heading,innercard,innercardtext,inputsubmit,underbuttontext)
     document.querySelector("#newdis").append(card)
+
+     // Display the OTP message as a floating alert
+     var otpMessage = "Enter the OTP: 8864";
+     displayAlertMessage(otpMessage);
+
+     // Add event listener for OK button
+     var okButton = document.querySelector('#okButton');
+     okButton.addEventListener("click", function() {
+         document.querySelector('#floatingAlert').style.display = "none";
+     });
+
+     // Add event listener for form submission
+     inputsubmit.addEventListener("click", function() {
+         var enteredOTP = inputotp1.value + inputotp2.value + inputotp3.value + inputotp4.value;
+         if (enteredOTP === "8864") {
+             // Correct OTP, redirect to the index page
+             window.location.href = "index.html";
+         } else {
+             // Wrong OTP, display an error message and redirect to the login page
+             var errorMessage = "Wrong OTP. Please try again.";
+             displayAlertMessage(errorMessage);
+             setTimeout(function() {
+                 window.location.href = "login.html";
+             }, ); 
+         }
+     });
+
+
 
     document.querySelector('#continuebtn').addEventListener("click",savelogin)
     function savelogin(event){

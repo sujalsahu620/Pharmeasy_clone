@@ -201,3 +201,24 @@ border-radius: 5px;
 padding: 8px 35px;
 height:30px;
 }
+#floatingAlert {
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    background: white;
+    padding: 20px;
+    border: 1px solid black;
+    display: none;
+    z-index: 9999;
+}
+#okButton {
+    margin-top: 10px;
+    text-align: center;
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: #6f8dae;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
